@@ -8,9 +8,6 @@ class WelcomeController extends Controller
 {
     public function __invoke()
     {
-        //dd(User::factory()->make());
-        dd(User::factory()->count(100)->create());
-
         return view('welcome');
     }
 }
