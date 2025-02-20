@@ -8,3 +8,5 @@ use App\Http\Controllers\WelcomeController;
 Route::get('/', WelcomeController::class);
 Route::get('/hello', [HelloController::class, 'show']);
 Route::get('/login', [LoginController::class, 'index']);
+
+Route::post('/login', [LoginController::class, 'login']);
