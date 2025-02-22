@@ -17,12 +17,15 @@ class LoginController extends Controller
     {
         //dd(request()->email);
 
-        $user = User::query()
+        if($user = User::query()
         ->where('email', '=', request()->email)
-        ->first(); {
+        ->first()) {
 
-        abort_unless($user, 403);
+        auth()->login($user);
 
+        return to_route('dashboard');
         }
+
+        return back()->with(['message' => 'Invalid credentials']);
     }
 }
